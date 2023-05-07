@@ -1,0 +1,52 @@
+<mat-card class="form-center">
+  <form
+    class="example-form"
+    action="#"
+    method="post"
+    [formGroup]="signUpForm"
+    (ngSubmit)="doLogIn()">
+    <mat-card class="content-modify"
+      ><span class="login-font">Login</span>
+      <span class="user-modify"
+        >New User?
+     <button class="btn-bgcolor" type="button" mat-raised-button>Register</button></span></mat-card ><br />
+      <mat-card class="inner-matcard">
+        <div class="error-div" *ngIf="!signUpForm.dirty">
+          {{errorMessage}}
+          </div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <mat-error>Username is required</mat-error>
+        <input
+          matInput
+          placeholder="Enter your name"
+          name="Username"
+          formControlName="Username"/> 
+          </mat-form-field><br />
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <mat-error>Password is required</mat-error>
+        <input
+          matInput
+          placeholder="Enter your password"
+          value=""
+          name="Password"
+          [type]="togglePassword  ? 'password' : 'text'"
+          formControlName="Password"
+        />
+        <mat-icon matSuffix (click)="togglePassword  = !togglePassword ">{{
+          togglePassword  ? "visibility_off" : "visibility"
+        }}</mat-icon> </mat-form-field
+      ><br />
+      <button mat-raised-button color="primary" type="submit" class="button-center">
+        Login</button
+      ><br
+    /></mat-card></form
+></mat-card>
+
+
+
+
+
+
+<!-- [disabled]="!signUpForm.valid" -->
